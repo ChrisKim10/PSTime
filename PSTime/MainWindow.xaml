@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PSTime"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" WindowState="Maximized"
+        Background="Black"
+        Foreground="White"
+        AllowsTransparency="True"
+        WindowStyle="None">
+    <Grid x:Name="gridRoot">
+
+        <!--<Image Source="/Assets/bizbot.png" 
+               Margin="12"
+               Stretch="None" 
+               VerticalAlignment="Top" HorizontalAlignment="Left"></Image>-->
+
+        <TextBlock x:Name="tbTime" Text="00:00" FontSize="320"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" FontFamily="Century Gothic"/>
+
+        <Grid Margin="0,0,50,100"
+            HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Canvas x:Name="Canvas1" Width="200" Height="200">
+                <!--<Ellipse x:Name="aClock" Width="200" Height="200" Stroke="White"></Ellipse>-->
+            </Canvas> 
+        </Grid>
+       
+        <!--<Grid Margin="0,0,400,0" Width="200" Height="200" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid.Resources>
+                    <Style TargetType="Line">
+                        <Setter Property="StrokeThickness" Value="0.1" />
+                        <Setter Property="Stroke" Value="White" />
+                    </Style>
+                </Grid.Resources>
+            <Grid.RenderTransform>
+                <MatrixTransform>
+                    <MatrixTransform.Matrix>
+                        <Matrix OffsetX="120" OffsetY="120" M11="10" M12="0" M21="0" M22="-10"/>
+                    </MatrixTransform.Matrix>
+                </MatrixTransform>
+            </Grid.RenderTransform>
+                <Line X1="0" Y1="0" X2="0" Y2="0" Name="secondLine" StrokeThickness=".05" />
+                <Line X1="0" Y1="0" X2="0" Y2="0" Name="minuteLine" />
+                <Line X1="0" Y1="0" X2="0" Y2="0" Name="hourLine" StrokeThickness=".1" />
+            <Line X1="0" Y1="10" X2="0" Y2="11" />
+            <Line X1="10" Y1="0" X2="11" Y2="0" />
+            <Line X1="0" Y1="-10" X2="0" Y2="-11" />
+            <Line X1="-10" Y1="0" X2="-11" Y2="0" />
+        </Grid>-->
+
+
+
+
+        <Image x:Name="closeImage" Width="150"
+               Margin="50"
+               Source="/Assets/logo_white.png"
+               HorizontalAlignment="Right" VerticalAlignment="Top"
+               MouseDown="closeImage_MouseDown"></Image>
+        
         
     </Grid>
 </Window>
