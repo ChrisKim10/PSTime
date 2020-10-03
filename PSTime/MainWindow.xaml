@@ -22,9 +22,9 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center" FontFamily="Century Gothic"/>
 
-        <Grid Margin="34,40,0,0"
+        <Grid Margin="26,30,0,0"
             HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Canvas x:Name="Canvas1" Width="200" Height="200">
+            <Canvas x:Name="Canvas1" Width="220" Height="220">
                 <!--<Ellipse x:Name="aClock" Width="200" Height="200" Stroke="White"></Ellipse>-->
             </Canvas> 
         </Grid>
