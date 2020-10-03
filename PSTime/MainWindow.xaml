@@ -18,12 +18,12 @@
                Stretch="None" 
                VerticalAlignment="Top" HorizontalAlignment="Left"></Image>-->
 
-        <TextBlock x:Name="tbTime" Text="00:00" FontSize="320"
+        <TextBlock x:Name="tbTime" Text="00:00" FontSize="400"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center" FontFamily="Century Gothic"/>
 
-        <Grid Margin="26,30,0,0"
-            HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid Margin="0,0,0,0"
+            HorizontalAlignment="Center" VerticalAlignment="Top">
             <Canvas x:Name="Canvas1" Width="220" Height="220">
                 <!--<Ellipse x:Name="aClock" Width="200" Height="200" Stroke="White"></Ellipse>-->
             </Canvas> 
