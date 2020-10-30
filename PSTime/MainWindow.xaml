@@ -12,6 +12,16 @@
         WindowStyle="None">
     <Grid x:Name="gridRoot">
         <Image Source="/Assets/background.jpg" Stretch="UniformToFill"/>
+        <MediaElement x:Name="mediaElement"
+                      Source="Assets/1.mp4"
+                      Volume="0"
+                      IsMuted="True"
+                      Stretch="UniformToFill"
+                      ScrubbingEnabled="True"
+                      LoadedBehavior="Manual"
+                      MediaEnded="mediaElement_MediaEnded">
+        </MediaElement>
+        <Border Background="#000000" Opacity="0.5"/>
 
         <!--<Image Source="/Assets/bizbot.png" 
                Margin="12"

@@ -21,6 +21,15 @@ namespace PSTime
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        Random rnd = new Random();
+        int[] timeleft = { -300, -200, -100, 0, 100, 200, 300 };
+        int[] timetop = { -300, -200, -100, 0, 100, 200, 300 };
+        int prevMinute = -1;
+
+        List<Uri> uriList = new List<Uri>();
+        int uriIndex = -1;
+
         DispatcherTimer timer = new DispatcherTimer();
         DispatcherTimer analogtimer = new DispatcherTimer();
         public MainWindow()
@@ -29,11 +38,27 @@ namespace PSTime
 
             aClock_Setting();
             initTimer();
+
+            uriList.Add(new Uri(@"Assets/1.mp4", UriKind.Relative));
+            uriList.Add(new Uri(@"Assets/2.mp4", UriKind.Relative));
+            uriList.Add(new Uri(@"Assets/3.mp4", UriKind.Relative));
+            uriList.Add(new Uri(@"Assets/4.mp4", UriKind.Relative));
+            uriList.Add(new Uri(@"Assets/5.mp4", UriKind.Relative));
+            uriList.Add(new Uri(@"Assets/6.mp4", UriKind.Relative));
+            uriList.Add(new Uri(@"Assets/7.mp4", UriKind.Relative));
+
+
+            mediaElement.Play();
+        }
+
+        private void mediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            mediaElement.Position = TimeSpan.FromSeconds(0);
         }
 
         void initTimer()
         {
-            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Interval = new TimeSpan(0, 0, 10);
             timer.Tick += Timer_Tick;
             timer.Start();
 
@@ -49,7 +74,20 @@ namespace PSTime
             DateTime now = DateTime.Now;
             tbTime.Text = now.ToString("hh:mm");
 
+            int left = rnd.Next(timeleft.Length);
+            int top = rnd.Next(timetop.Length);
 
+            if((prevMinute != now.Minute) && now.Minute == 0)
+            {
+                
+                tbTime.Margin = new Thickness(timeleft[left], timetop[top], 0, 0);
+                uriIndex = (uriIndex + 1) % uriList.Count;
+                mediaElement.Stop();
+                mediaElement.Source = uriList[uriIndex];
+                mediaElement.Play();
+            }
+            
+            prevMinute = now.Minute;
 #if false
             double secondRadian = 2 * Math.PI / 60 * now.Second;
             this.secondLine.X2 = Math.Sin(secondRadian) * 10;
@@ -143,5 +181,7 @@ namespace PSTime
         {
             Application.Current.Shutdown();
         }
+
+
     }
 }
